@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>花蓮原住民風味之旅 🏔️🦐</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/moon.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+
+    :root {
+      --accent: #f5a623;
+      --green: #7ed321;
+    }
+
+    body {
+      background: #1a1a2e;
+    }
+
+    .reveal {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 900;
+      color: #f5a623;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    }
+
+    .reveal h1 { font-size: 2.2em; }
+    .reveal h2 { font-size: 1.6em; }
+
+    .reveal p, .reveal li {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: #f0e6d3;
+    }
+
+    .reveal .slides section {
+      text-align: left;
+    }
+
+    .reveal .slides section.center-slide {
+      text-align: center;
+    }
+
+    /* Title slide */
+    .title-slide {
+      text-align: center !important;
+      background: radial-gradient(ellipse at center, #2d4a3e 0%, #1a1a2e 70%);
+      border-radius: 16px;
+      padding: 40px !important;
+    }
+
+    .title-slide h1 {
+      font-size: 2.8em !important;
+      color: #f5a623 !important;
+      margin-bottom: 0.3em;
+    }
+
+    .title-slide .subtitle {
+      font-size: 1.2em;
+      color: #b8d4c8;
+      margin-top: 0.5em;
+    }
+
+    .title-slide .emoji-row {
+      font-size: 2.5em;
+      margin: 0.5em 0;
+    }
+
+    /* Info cards */
+    .info-card {
+      background: rgba(255,255,255,0.08);
+      border-left: 4px solid #f5a623;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 12px 0;
+    }
+
+    .info-card h3 {
+      font-size: 1.1em !important;
+      margin: 0 0 8px 0;
+      color: #f5a623 !important;
+    }
+
+    .info-card p, .info-card li {
+      font-size: 0.82em;
+      margin: 4px 0;
+      color: #e8dcc8;
+    }
+
+    /* Food grid */
+    .food-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .food-item {
+      background: rgba(245,166,35,0.15);
+      border: 1px solid rgba(245,166,35,0.4);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .food-item .food-emoji {
+      font-size: 2.2em;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .food-item .food-name {
+      font-size: 0.95em;
+      font-weight: 700;
+      color: #f5a623;
+      display: block;
+    }
+
+    .food-item .food-desc {
+      font-size: 0.72em;
+      color: #c8b89a;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* Route timeline */
+    .route-line {
+      display: flex;
+      align-items: center;
+      margin: 12px 0;
+      gap: 12px;
+    }
+
+    .route-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #f5a623;
+      flex-shrink: 0;
+    }
+
+    .route-text {
+      font-size: 0.88em;
+      color: #e8dcc8;
+    }
+
+    /* Rating badge */
+    .rating-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f5a623, #e8830a);
+      color: #1a1a2e;
+      font-weight: 900;
+      font-size: 0.9em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin: 4px 4px;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(245,166,35,0.2), rgba(126,211,33,0.1));
+      border: 1px solid rgba(245,166,35,0.5);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .highlight-box .big-text {
+      font-size: 1.4em;
+      font-weight: 900;
+      color: #f5a623;
+    }
+
+    /* Section header bar */
+    .section-bar {
+      background: linear-gradient(90deg, #f5a623, transparent);
+      height: 3px;
+      margin: 12px 0 20px 0;
+      border-radius: 2px;
+    }
+
+    /* Tribe tag */
+    .tribe-tag {
+      display: inline-block;
+      background: rgba(126,211,33,0.2);
+      border: 1px solid #7ed321;
+      color: #7ed321;
+      font-size: 0.78em;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin: 2px;
+    }
+
+    /* Music player */
+    .music-bar {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid rgba(245,166,35,0.4);
+      border-radius: 30px;
+      padding: 8px 16px;
+      font-size: 0.7em;
+      color: #f5a623;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reveal blockquote {
+      background: rgba(255,255,255,0.06);
+      border-left: 4px solid #7ed321;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-style: italic;
+      color: #c8e6c9;
+      font-size: 0.85em;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .tip-box {
+      background: rgba(126,211,33,0.1);
+      border: 1px solid rgba(126,211,33,0.4);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.8em;
+      color: #d4edda;
+    }
+
+    .tip-box h4 {
+      color: #7ed321;
+      margin: 0 0 8px 0;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Background music (autoplay attempt) -->
+<audio id="bgm" loop preload="auto">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-bar" id="music-bar" onclick="toggleMusic()" style="cursor:pointer">
+  🎵 <span id="music-status">點擊播放部落音樂</span>
+</div>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- SLIDE 1: Title -->
+    <section>
+      <div class="title-slide" style="text-align:center">
+        <div class="emoji-row">🏔️ 🦐 🌿</div>
+        <h1>花蓮原住民風味之旅</h1>
+        <p class="subtitle">打工換宿 × 部落美食 × 山海秘境</p>
+        <div style="margin-top: 30px; color: #8fb3a3; font-size: 0.85em;">
+          先走山縣，再走海邊回來 🌊
+        </div>
+        <div style="margin-top: 20px;">
+          <span class="tribe-tag">阿美族</span>
+          <span class="tribe-tag">花蓮吉安</span>
+          <span class="tribe-tag">達路鞍餐廳</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: 行程總覽 -->
+    <section>
+      <h2>🗺️ 這趟旅程</h2>
+      <div class="section-bar"></div>
+
+      <div class="info-card">
+        <h3>📍 路線規劃</h3>
+        <div class="route-line">
+          <div class="route-dot"></div>
+          <span class="route-text"><strong>出發</strong> → 山區打工換宿（花蓮）</span>
+        </div>
+        <div class="route-line">
+          <div class="route-dot" style="background:#7ed321"></div>
+          <span class="route-text"><strong>中途</strong> → 深山部落體驗、原住民風味餐</span>
+        </div>
+        <div class="route-line">
+          <div class="route-dot" style="background:#5bc0de"></div>
+          <span class="route-text"><strong>回程</strong> → 走海邊路線返家</span>
+        </div>
+      </div>
+
+      <div class="info-card" style="border-color: #7ed321">
+        <h3>✨ 旅程亮點</h3>
+        <p>🏕️ 打工換宿體驗部落生活</p>
+        <p>🍽️ 道地阿美族風味料理</p>
+        <p>🌊 山景 × 海景雙重享受</p>
+        <p>😂 不會擺姿勢的歡笑拍照時光</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: 達路鞍餐廳介紹 -->
+    <section>
+      <h2>🏠 達路鞍原住民風味餐廳</h2>
+      <div class="section-bar"></div>
+
+      <div class="highlight-box">
+        <div class="big-text">⭐ 4.7 / 5.0</div>
+        <div style="color: #c8b89a; font-size: 0.85em; margin-top: 6px">781 則 Google 評論</div>
+      </div>
+
+      <div class="two-col" style="margin-top: 16px">
+        <div class="info-card">
+          <h3>📍 位置</h3>
+          <p>花蓮縣吉安鄉仁和村</p>
+          <p>吉豐路一段65巷2-26號</p>
+          <p style="margin-top: 8px; color: #f5a623">🕔 每日 17:00 開始</p>
+        </div>
+        <div class="info-card">
+          <h3>💰 消費</h3>
+          <p>$400–600 / 人</p>
+          <p>可內用 ✅</p>
+          <p>免下車服務 ✅</p>
+          <p style="margin-top: 8px">
+            <span class="tribe-tag">阿美族</span>
+            <span class="tribe-tag">聚餐首選</span>
+          </p>
+        </div>
+      </div>
+
+      <blockquote>
+        「花蓮在地美食餐廳，必吃原住民美食，是當地車聚、烤肉、聚餐的人氣名店！」
+      </blockquote>
+    </section>
+
+    <!-- SLIDE 4: 菜色推薦 - 主食 -->
+    <section>
+      <h2>🍽️ 必點菜色（一）主食篇</h2>
+      <div class="section-bar"></div>
+
+      <div class="food-grid">
+        <div class="food-item">
+          <span class="food-emoji">🎋</span>
+          <span class="food-name">竹筒飯</span>
+          <span class="food-desc">糯米放入竹筒烤製，帶有天然竹香，是阿美族傳統主食</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🌿</span>
+          <span class="food-name">阿拜（abai）</span>
+          <span class="food-desc">月桃葉包裹糯米與豬肉，用草繩綁緊炙烤，葉香濃郁</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🐟</span>
+          <span class="food-name">鹽烤魚</span>
+          <span class="food-desc">整條魚裹粗鹽烤製，配月桃葉盛盤，附胡椒粉與檸檬</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🍖</span>
+          <span class="food-name">山豬肉料理</span>
+          <span class="food-desc">原住民傳統獵物，風味獨特，帶有山野的粗獷氣息</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: 菜色推薦 - 野菜海鮮甜點 -->
+    <section>
+      <h2>🌿 必點菜色（二）野菜 × 海鮮 × 甜點</h2>
+      <div class="section-bar"></div>
+
+      <div class="food-grid">
+        <div class="food-item">
+          <span class="food-emoji">🦐</span>
+          <span class="food-name">椒鹽溪蝦</span>
+          <span class="food-desc">現撈溪蝦椒鹽酥炸，殼可直接吃，蒜末辣椒爆香超下酒</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🥬</span>
+          <span class="food-name">炒過貓配蛋</span>
+          <span class="food-desc">山蕨菜與蛋大火快炒，清脆微黏，配白飯超下飯</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🫙</span>
+          <span class="food-name">竹筒野菜湯</span>
+          <span class="food-desc">時令野菜熬製，清甜養生，展現山林自然滋味</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🍡</span>
+          <span class="food-name">小米麻糬甜點</span>
+          <span class="food-desc">細絲狀麻糬淋奶油，配紫蘇葉，QQ軟糯甜而不膩</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: 食材故事 -->
+    <section>
+      <h2>📖 食材背後的故事</h2>
+      <div class="section-bar"></div>
+
+      <div class="two-col">
+        <div>
+          <div class="info-card">
+            <h3>🌿 月桃葉</h3>
+            <p>阿美族傳統包裝食材，具天然防腐與增香功能，燒烤後散發獨特柴火香氣</p>
+          </div>
+          <div class="info-card" style="border-color: #7ed321">
+            <h3>🎋 竹子文化</h3>
+            <p>從竹筒飯到竹筒酒壺，竹子是部落生活的重要素材，代表原住民與自然共生的智慧</p>
+          </div>
+        </div>
+        <div>
+          <div class="info-card" style="border-color: #5bc0de">
+            <h3>🦐 溪蝦</h3>
+            <p>花蓮山區溪流現撈，新鮮度無與倫比，是部落餐廳最難複製的在地特色</p>
+          </div>
+          <div class="info-card" style="border-color: #e07b39">
+            <h3>🌾 小米文化</h3>
+            <p>原住民族的聖糧，從小米酒到小米麻糬，承載著祭典與生命的文化意涵</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: 旅遊提示 -->
+    <section>
+      <h2>💡 旅行小叮嚀</h2>
+      <div class="section-bar"></div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px">
+        <div class="tip-box">
+          <h4>📅 訂位建議</h4>
+          <p>達路鞍相當熱門，建議提早電話訂位，尤其假日人潮多</p>
+        </div>
+        <div class="tip-box">
+          <h4>🚗 交通</h4>
+          <p>花蓮吉安鄉建議自駕或租機車，大眾運輸較不便</p>
+        </div>
+        <div class="tip-box">
+          <h4>🕔 用餐時間</h4>
+          <p>17:00 開始營業，建議 17:30 到，避開尖峰人潮</p>
+        </div>
+        <div class="tip-box">
+          <h4>💰 預算</h4>
+          <p>$400-600/人，多人聚餐更划算，可嚐到更多菜色</p>
+        </div>
+        <div class="tip-box" style="grid-column: 1 / -1">
+          <h4>🎒 打工換宿</h4>
+          <p>想體驗部落生活？花蓮有許多打工換宿機會，可透過「背包客棧」或「換個生活」平台查詢，提供住宿換取協助農務或民宿服務</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: 景點推薦 -->
+    <section>
+      <h2>🗺️ 花蓮周邊景點推薦</h2>
+      <div class="section-bar"></div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px">
+        <div class="food-item">
+          <span class="food-emoji">🏔️</span>
+          <span class="food-name">太魯閣國家公園</span>
+          <span class="food-desc">峽谷鬼斧神工，步道健行首選</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🌊</span>
+          <span class="food-name">清水斷崖</span>
+          <span class="food-desc">太平洋直立斷崖，台灣最壯觀海景</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🌾</span>
+          <span class="food-name">富里六十石山</span>
+          <span class="food-desc">金針花海，花蓮山縣必訪</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🏄</span>
+          <span class="food-name">七星潭</span>
+          <span class="food-desc">月牙形礫石海灣，日落超美</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🛶</span>
+          <span class="food-name">秀姑巒溪泛舟</span>
+          <span class="food-desc">東部最刺激的水上活動</span>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🌙</span>
+          <span class="food-name">東大門夜市</span>
+          <span class="food-desc">原住民一條街，小吃彙集</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: 結語 -->
+    <section>
+      <div class="title-slide" style="text-align:center">
+        <div class="emoji-row">🌿 🏔️ 🌊</div>
+        <h1>下次我也要去！</h1>
+
+        <div class="highlight-box" style="margin: 30px auto; max-width: 500px">
+          <div class="big-text">達路鞍原住民風味餐廳</div>
+          <div style="color: #c8b89a; margin-top: 10px; font-size: 0.85em">
+            📍 花蓮縣吉安鄉仁和村吉豐路一段65巷2-26號<br>
+            🕔 每日 17:00 起 &nbsp;|&nbsp; ⭐ 4.7 / 5.0
+          </div>
+        </div>
+
+        <blockquote style="text-align:left; max-width: 500px; margin: 0 auto">
+          「吃了好多東西，還有原住民的風味餐，先走山縣再走海邊回來，下次想慢慢玩環島 🌸」
+        </blockquote>
+
+        <div style="margin-top: 30px; color: #7ed321; font-size: 1.1em; font-weight: 700">
+          感謝分享這趟美好的旅程 🦐
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'convex',
+    transitionSpeed: 'slow',
+    backgroundTransition: 'fade',
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+    autoPlayMedia: true
+  });
+
+  let musicPlaying = false;
+  const audio = document.getElementById('bgm');
+  const status = document.getElementById('music-status');
+
+  function toggleMusic() {
+    if (musicPlaying) {
+      audio.pause();
+      status.textContent = '點擊播放部落音樂';
+      musicPlaying = false;
+    } else {
+      audio.play().then(() => {
+        status.textContent = '♪ 播放中（點擊暫停）';
+        musicPlaying = true;
+      }).catch(() => {
+        status.textContent = '無法自動播放';
+      });
+    }
+  }
+
+  // Try autoplay on first interaction
+  document.addEventListener('click', function tryPlay() {
+    if (!musicPlaying) {
+      audio.play().then(() => {
+        status.textContent = '♪ 播放中（點擊暫停）';
+        musicPlaying = true;
+      }).catch(() => {});
+    }
+    document.removeEventListener('click', tryPlay);
+  }, { once: true });
+</script>
+</body>
+</html>
